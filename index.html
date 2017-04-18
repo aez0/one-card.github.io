@@ -4,6 +4,9 @@
     <title>OneCard</title>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script async>
+      window.onload = function(){
+        document.getElementsByClassName('heading')[0].setAttribute('style', 'height: ' + String(window.innerHeight) + 'px;');
+      }
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
