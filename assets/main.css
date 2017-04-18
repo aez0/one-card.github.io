@@ -1,0 +1,49 @@
+body {
+  color: #23272A;
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Segoe UI', Helvetica, Arial;
+}
+
+a {
+  color: #4286f4;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar {
+  padding: 10px 5%;
+  color: white !important;
+  font-size: 22px;
+  margin-bottom: 15px;
+	background-color: #34A853;
+}
+
+.navbar a {
+  color: white !important;
+  text-decoration: none;
+  transition: 0.3s;
+  margin: 0px 20px;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar img {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  left:-5px;
+  top: 3.5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+.content {
+  padding: 30px;
+  text-align: center;
+}
