@@ -13,7 +13,17 @@
         console.log('Name: ' + profile.getName());
         console.log('Image URL: ' + profile.getImageUrl());
         console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      }</script>
+        document.getElementById('gsignin').style.display = "none";
+        document.getElementById('signout').style.display = "block";
+      }
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          document.getElementById('signout').style.display = "none";
+          document.getElementById('gsignin').style.display = "block";
+        });
+      }
+    </script>
     <link href="assets/main.css" rel="stylesheet">
     <link href="favicon.ico" rel="icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,7 +35,8 @@
     <div class="heading">
       <div class="navbar">
         <a href="https://one-card.github.io"><img src="assets/onecard.svg" /> OneCard</a>
-        <div style="float: right; position: relative; top: -2.5px;" class="g-signin2" data-onsuccess="onSignin()" data-onfailure="onSigninFailure()"></div>
+        <div id="gsignin" style="float: right; position: relative; top: -2.5px;" class="g-signin2" data-onsuccess="onSignin()" data-onfailure="onSigninFailure()"></div>
+        <p id="signout" style="text-decoration: underline; display: none;" onclick="signOut()">Sign out</p>
       </div>
       <div class="content">
         <h1 style="font-size: 3em;">OneCard</h1>
