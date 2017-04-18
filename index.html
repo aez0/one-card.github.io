@@ -2,22 +2,42 @@
 <html lang="en">
   <head>
     <title>OneCard</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async>
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      }</script>
     <link href="assets/main.css" rel="stylesheet">
-    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link href="favicon.ico" rel="icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="onecard, card, note, notes, notepad, to-do, list, notecard">
     <meta name="description" content="OneCard | Your personal, customizable, online to-do list.">
+    <meta name="google-signin-client_id" content="715078466665-pj5cpqhuicccp7pkkj7gg8oaqu2fehk6.apps.googleusercontent.com">
   </head>
   <body onresize="document.getElementsByClassName('heading')[0].setAttribute('style', 'height: ' + String(window.innerHeight) + 'px;');">
     <div class="heading">
       <div class="navbar">
         <a href="https://one-card.github.io"><img src="assets/onecard.svg" /> OneCard</a>
+        <div class="g-signin2" data-onsuccess="onSignin()" data-onfailure="onSigninFailure()">
       </div>
       <div class="content">
-        <h1>OneCard</h1>
+        <h1 style="font-size: 3em;">OneCard</h1>
         <img src="assets/onecard.svg" width="30%" height="30%"/><br>
         <p style="color: gray;">Your personal, online to-do list</p>
       </div>
+    </div>
+    <div class="below-fold-content">
+      <center>
+        <h2>What is OneCard?</h2>
+        <p>OneCard is an <a href="https://github.com/one-card">open-source project</a> where you can keep track of various things using online "notecards". It's your personal to-do list without any paper. Keep track of what's important by prioritizing your cards.</p>
+        <hr>
+        <h2>Get Started</h2>
+        <p>Ready to give OneCard a try? It's free forever.</p><br>
+      </center>
     </div>
   </body>
 </html>
