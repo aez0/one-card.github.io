@@ -49,6 +49,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .below-fold-content {
-	background-color: gray;
+	background-color: #e2e2e2;
 	padding: 20px;
+}
+
+hr {
+	color: #23272A;
 }
