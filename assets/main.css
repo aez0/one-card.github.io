@@ -63,3 +63,7 @@ hr {
 	background-color: #263238;
 	padding: 20px;
 }
+
+.footer a {
+	color: white !important;
+}
