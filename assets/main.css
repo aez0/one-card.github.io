@@ -68,7 +68,7 @@ hr {
 
 #title {
 	font-size: 5em;
-	background: url("assets/onecard.svg") no-repeat center right;
+	background: url("https://one-card.github.io/assets/onecard.svg") no-repeat center right;
 }
 
 .show-mob {
@@ -78,7 +78,7 @@ hr {
 @media (max-width: 750px) {
 	#title {
 		font-size: 4.5em;
-		background: url("assets/onecard.svg") no-repeat center right;
+		background: url("https://one-card.github.io/assets/onecard.svg") no-repeat center right;
 	}
 }
 
