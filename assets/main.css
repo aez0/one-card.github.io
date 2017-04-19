@@ -16,7 +16,6 @@ a {
   padding: 10px 10px;
   color: white !important;
   font-size: 22px;
-  margin-bottom: 15px;
 	background-color: #34A853;
 }
 
@@ -24,7 +23,7 @@ a {
   color: white !important;
   text-decoration: none;
   transition: 0.3s;
-  margin: 0px 20px;
+  margin: 0px 10px;
 }
 
 .navbar a:hover {
