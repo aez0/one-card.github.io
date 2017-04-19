@@ -51,7 +51,7 @@
       <a href="https://one-card.github.io"><img src="https://one-card.github.io/assets/onecard.svg" /> OneCard</a>
       <a style="float: right;" href="https://one-card.github.io/account">My Account</a>
       <a style="float: right;" href="https://one-card.github.io/help">Help</a>
-      <div style="float: right;" class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSigninFailure" data-theme="dark"></div>
+      <div style="display: none;" class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSigninFailure" data-theme="dark"></div>
     </div>
     <h1 style="text-align: center;">My Notes</h1>
     <button onclick="newElement()">Create a new note</button> <button onclick="resetNotes()">Clear all notes</button>
@@ -67,6 +67,10 @@
       
       function resetNotes() {
         document.getElementsByClassName("note-area")[0].innerHTML = "";
+      }
+      
+      function noteTools() {
+        console.warn("Not implemented!")
       }
     </script>
   </body>
