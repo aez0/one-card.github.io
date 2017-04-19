@@ -3,14 +3,15 @@
   <head>
     <title>My Notes - OneCard</title>
     <link rel="stylesheet" href="https://one-card.github.io/assets/notes.css">
+    <link rel="stylesheet" href="https://nanomotion.github.io/assets/css/sweetalert.css">
     <link href="https://one-card.github.io/favicon.ico" rel="icon" type="image/x-icon">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
+    <script async src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+    <script async src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
+    <script async src="https://nanomotion.github.io/assets/js/sweetalert.min.js"></script>
     <meta name="google-signin-client_id" content="715078466665-pj5cpqhuicccp7pkkj7gg8oaqu2fehk6.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script>
+    <script async>
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyCkyrIrVktUomIn2HDn7sRw7woLcITePuc",
@@ -56,13 +57,18 @@
     <h1 style="text-align: center;">My Notes</h1>
     <center><button onclick="newElement()">Create a new note</button> <button onclick="resetNotes()">Clear all notes</button></center>
     <ul class="note-area">
-      <li><span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = "";' class='close'>&times;</span><textarea autofocus placeholder='Enter note text here...'>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
+      <li data-noteid="1" draggable="true"><span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = "";' class='close'>&times;</span><textarea autofocus placeholder='Enter note text here...'>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
     </ul>
     <script>
+      var id = 2
+      
       function newElement() {
         var li = document.createElement("li");
         li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = \"\";' class='close'>&times;</span><textarea placeholder='Enter note text here...'></textarea>";
         document.getElementsByClassName("note-area")[0].appendChild(li);
+        li.setattribute("id", "note" + String(id));
+        li.setattribute("data-noteid", "true");
+        var id = id + 1
       }
       
       function resetNotes() {
@@ -70,8 +76,75 @@
       }
       
       function noteTools() {
-        console.warn("Not implemented!")
+        swal("Error", "This feature doesn't work yet!", "error")
       }
+    </script>
+    <script async>
+      var dragSrcEl = null;
+
+      function handleDragStart(e) {
+          // Target (this) element is the source node.
+          this.style.opacity = '0.4';
+
+          dragSrcEl = this;
+
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/html', this.innerHTML);
+      }
+
+      function handleDragOver(e) {
+          if (e.preventDefault) {
+              e.preventDefault(); // Necessary. Allows us to drop.
+          }
+
+          e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
+
+          return false;
+      }
+
+      function handleDragEnter(e) {
+          // this / e.target is the current hover target.
+          this.classList.add('over');
+      }
+
+      function handleDragLeave(e) {
+          this.classList.remove('over');  // this / e.target is previous target element.
+      }
+
+      function handleDrop(e) {
+          // this/e.target is current target element.
+
+          if (e.stopPropagation) {
+              e.stopPropagation(); // Stops some browsers from redirecting.
+          }
+
+          // Don't do anything if dropping the same column we're dragging.
+          if (dragSrcEl != this) {
+              // Set the source column's HTML to the HTML of the column we dropped on.
+              dragSrcEl.innerHTML = this.innerHTML;
+              this.innerHTML = e.dataTransfer.getData('text/html');
+          }
+
+          return false;
+      }
+
+      function handleDragEnd(e) {
+          // this/e.target is the source node.
+
+          [].forEach.call(cols, function (col) {
+              col.classList.remove('over');
+          });
+      }
+
+      var cols = document.querySelectorAll('#parent .parent');
+      [].forEach.call(cols, function (col) {
+          col.addEventListener('dragstart', handleDragStart, false);
+          col.addEventListener('dragenter', handleDragEnter, false)
+          col.addEventListener('dragover', handleDragOver, false);
+          col.addEventListener('dragleave', handleDragLeave, false);
+          col.addEventListener('drop', handleDrop, false);
+          col.addEventListener('dragend', handleDragEnd, false);
+      });
     </script>
   </body>
 </html>
