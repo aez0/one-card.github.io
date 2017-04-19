@@ -45,7 +45,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .content {
   padding: 30px;
-  text-align: center;
 }
 
 .below-fold-content {
@@ -65,4 +64,34 @@ hr {
 
 .footer a {
 	color: white !important;
+}
+
+#title {
+	font-size: 5em;
+	background: url("assets/onecard.svg") no-repeat center right;
+}
+
+.show-mob {
+	display: none;
+}
+
+@media (max-width: 750px) {
+	#title {
+		font-size: 4.5em;
+		background: url("assets/onecard.svg") no-repeat center right;
+	}
+}
+
+@media (max-width: 550px) {
+	.hide-mob {
+		display: none;
+	}
+	#title {
+		font-size: 4.5em;
+		background: white !important;
+	}
+	.show-mob {
+		display: block !important;
+	}
+}
 }
