@@ -2,6 +2,8 @@
 <html>
   <head>
     <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
     <script>
       // Initialize Firebase
       var config = {
@@ -13,9 +15,20 @@
         messagingSenderId: "601405421027"
       };
       firebase.initializeApp(config);
+      var storage = firebase.storage();
+      var storageRef = storage.ref();
+      var notesRef = storageRef.child("notes");
+      
+      function upload() {
+        var text = 'data:application/json,{"note1":{"title":"Welcome to OneCard!", "content":"Check out the <a href=\"https://one-card.github.io/help\">help center</a>.", "priority":"high"}';
+        ref.putString(text, 'data_url').then(function(snapshot) {
+          alert('Finished uploading file!');
+        });
+      }
     </script>
   </head>
   <body>
     <p>Coming soon!</p>
+    <button onClick="upload()">Test</button>
   </body>
 </html>
