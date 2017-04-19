@@ -66,7 +66,7 @@
         var li = document.createElement("li");
         li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = \"\";' class='close'>&times;</span><textarea placeholder='Enter note text here...'></textarea>";
         document.getElementsByClassName("note-area")[0].appendChild(li);
-        g.id = String(id);
+        li.id = String(id);
         li.setAttribute("draggable", "true");
         var id = id + 1
       }
