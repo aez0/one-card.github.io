@@ -9,6 +9,7 @@
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
     <meta name="google-signin-client_id" content="715078466665-pj5cpqhuicccp7pkkj7gg8oaqu2fehk6.apps.googleusercontent.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
       // Initialize Firebase
       var config = {
@@ -43,15 +44,18 @@
     </script>
   </head>
   <body>
+    <div class="announcement" id="no-backend">
+      <span style="float: right;" onclick="document.getElementById('no-backend').style.display = 'none';">&times;</span>Thanks for checking out OneCard! Unfortunately, we just started and backend hasn't been implemented yet, so your notes won't save.
+    </div>
     <div class="navbar">
-      <a href="https://one-card.github.io"><img src="assets/onecard.svg" /> OneCard</a>
+      <a href="https://one-card.github.io"><img src="https://one-card.github.io/assets/onecard.svg" /> OneCard</a>
       <a style="float: right;" href="https://one-card.github.io/account">My Account</a>
       <a style="float: right;" href="https://one-card.github.io/help">Help</a>
     </div>
     <h1 style="text-align: center;">My Notes</h1>
-    <a onclick="newElement()">Create a new note</a> | <a onclick="resetNotes()">Clear all notes</a>
+    <a style="cursor: pointer;" onclick="newElement()">Create a new note</a> | <a style="cursor: pointer;" onclick="resetNotes()">Clear all notes</a>
     <ul class="note-area">
-      <li><textarea>Welcome to OneCard! Need help? Check out the <a href="https://one-card.github.io/help">Help Center</a>. Happy note-taking!</textarea></li>
+      <li><textarea>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
     </ul>
     <script>
       function newElement() {
