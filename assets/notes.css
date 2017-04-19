@@ -100,3 +100,13 @@ textarea {
 	padding: 10px 5%;
   font-size: 16px;
 }
+
+.close {
+	padding: 2.5px;
+	color: black;
+}
+
+.close:hover {
+	background-color: red;
+	color: white;
+}
