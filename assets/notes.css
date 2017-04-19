@@ -115,8 +115,10 @@ textarea {
 .close:hover {
 	background-color: red;
 	color: white;
+	transition: 0.3s;
 }
 
 li span {
 	width: 20px;
+	cursor: pointer;
 }
