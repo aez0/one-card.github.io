@@ -54,14 +54,14 @@
       <div style="display: none;" class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSigninFailure" data-theme="dark"></div>
     </div>
     <h1 style="text-align: center;">My Notes</h1>
-    <button onclick="newElement()">Create a new note</button> <button onclick="resetNotes()">Clear all notes</button>
+    <center><button onclick="newElement()">Create a new note</button> <button onclick="resetNotes()">Clear all notes</button></center>
     <ul class="note-area">
-      <li><textarea>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
+      <li><span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = "";' class='close'>&times;</span><textarea autofocus placeholder='Enter note text here...'>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
     </ul>
     <script>
       function newElement() {
         var li = document.createElement("li");
-        li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.style.display = \"none\";' class='close'>&times;</span><br><textarea></textarea>";
+        li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = \"\";' class='close'>&times;</span><textarea placeholder='Enter note text here...'></textarea>";
         document.getElementsByClassName("note-area")[0].appendChild(li);
       }
       
