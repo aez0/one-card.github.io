@@ -5,15 +5,15 @@
     <link rel="stylesheet" href="https://one-card.github.io/assets/notes.css">
     <link rel="stylesheet" href="https://nanomotion.github.io/assets/css/sweetalert.css">
     <link href="https://one-card.github.io/favicon.ico" rel="icon" type="image/x-icon">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script async src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
-    <script async src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>
+    <!--<script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase-storage.js"></script>-->
     <script async src="https://nanomotion.github.io/assets/js/sweetalert.min.js"></script>
     <meta name="google-signin-client_id" content="715078466665-pj5cpqhuicccp7pkkj7gg8oaqu2fehk6.apps.googleusercontent.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script async>
       // Initialize Firebase
-      var config = {
+      /*var config = {
         apiKey: "AIzaSyCkyrIrVktUomIn2HDn7sRw7woLcITePuc",
         authDomain: "one-card-6eb00.firebaseapp.com",
         databaseURL: "https://one-card-6eb00.firebaseio.com",
@@ -24,7 +24,7 @@
       firebase.initializeApp(config);
       var storage = firebase.storage();
       var storageRef = storage.ref();
-      var notesRef = storageRef.child("notes");
+      var notesRef = storageRef.child("notes");*/
       
       // Handle Google Signin
       function onSignIn(googleUser) {
@@ -66,8 +66,8 @@
         var li = document.createElement("li");
         li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.outerHTML = \"\";' class='close'>&times;</span><textarea placeholder='Enter note text here...'></textarea>";
         document.getElementsByClassName("note-area")[0].appendChild(li);
-        li.setattribute("id", "note" + String(id));
-        li.setattribute("data-noteid", "true");
+        g.id = String(id);
+        li.setAttribute("draggable", "true");
         var id = id + 1
       }
       
