@@ -45,22 +45,23 @@
   </head>
   <body>
     <div class="announcement" id="no-backend">
-      <span style="float: right;" onclick="document.getElementById('no-backend').style.display = 'none';">&times;</span>Thanks for checking out OneCard! Unfortunately, we just started and backend hasn't been implemented yet, so your notes won't save.
+      <span style="float: right; cursor: pointer;" onclick="document.getElementById('no-backend').style.display = 'none';">&times;</span>Thanks for checking out OneCard! Unfortunately, we just started and backend hasn't been implemented yet, so your notes won't save.
     </div>
     <div class="navbar">
       <a href="https://one-card.github.io"><img src="https://one-card.github.io/assets/onecard.svg" /> OneCard</a>
       <a style="float: right;" href="https://one-card.github.io/account">My Account</a>
       <a style="float: right;" href="https://one-card.github.io/help">Help</a>
+      <div style="float: right;" class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onSigninFailure" data-theme="dark"></div>
     </div>
     <h1 style="text-align: center;">My Notes</h1>
-    <a style="cursor: pointer;" onclick="newElement()">Create a new note</a> | <a style="cursor: pointer;" onclick="resetNotes()">Clear all notes</a>
+    <button onclick="newElement()">Create a new note</button> <button onclick="resetNotes()">Clear all notes</button>
     <ul class="note-area">
       <li><textarea>Welcome to OneCard! Need help? Check out the Help Center by clicking 'Help' above. Happy note-taking!</textarea></li>
     </ul>
     <script>
       function newElement() {
         var li = document.createElement("li");
-        li.innerHTML = "<textarea></textarea>";
+        li.innerHTML = "<span onClick='noteTools()'>☰</span><span onclick='this.parentElement.style.display = \"none\";' class='close'>&times;</span><br><textarea></textarea>";
         document.getElementsByClassName("note-area")[0].appendChild(li);
       }
       
