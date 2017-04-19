@@ -4,7 +4,7 @@ body {
 }
 
 ul {
-	margin: 10px 1%;
+	margin: 10px 0.5%;
   align-items: center;
   justify-content: center;
   align-items: center;
@@ -17,8 +17,8 @@ ul {
 }
 
 li {
-  width: 300px;
-  height: 200px;
+  width: 250px;
+  height: 150px;
   padding: 22px;
   margin: 22px 16px 0px;
   background: repeating-linear-gradient( -45deg, #f4e242, #f4e242 15px, #f9e954 15px, #f9e954 30px);
@@ -56,7 +56,7 @@ button:hover {
 
 
 .navbar {
-  padding: 10px 5%;
+  padding: 10px;
   color: white !important;
   font-size: 22px;
   margin-bottom: 15px;
@@ -108,14 +108,14 @@ textarea {
     float: right !important;
     text-align: center;
     position: relative;
-    left: 290px;
+    left: 235px;
     top: -25px;
+	transition: 0.5s;
 }
 
 .close:hover {
 	background-color: red;
 	color: white;
-	transition: 0.3s;
 }
 
 li span {
