@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>OneCard</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script async>
+      window.onload = function(){
+        document.getElementsByClassName('heading')[0].setAttribute('style', 'height: ' + String(window.innerHeight) + 'px;');
+      }
+      function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+        console.log('Name: ' + profile.getName());
+        console.log('Image URL: ' + profile.getImageUrl());
+        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log("signed out");
+        });
+      }
+    </script>
+    <link href="assets/main.css" rel="stylesheet">
+    <link href="https://one-card.github.io/favicon.ico" rel="icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="onecard, card, note, notes, notepad, to-do, list, notecard">
+    <meta name="description" content="OneCard | Your personal, customizable, online to-do list.">
+    <meta name="google-signin-client_id" content="715078466665-pj5cpqhuicccp7pkkj7gg8oaqu2fehk6.apps.googleusercontent.com">
+  </head>
+  <body onresize="document.getElementsByClassName('heading')[0].setAttribute('style', 'height: ' + String(window.innerHeight) + 'px;');">
+    <div class="heading">
+      <div class="navbar">
+        <a href="https://one-card.github.io/help"><img src="assets/onecard.svg" /> OneCard Help</a>
+        <a style="float: right;" href="https://one-card.github.io">Back to OneCard ➜</a>
+      </div>
+      <div class="content">
+        <h1 style="font-size: 3em;">OneCard Help Center</h1>
+        <img src="assets/onecard.svg" width="30%" height="30%" style="max-width: 250px; max-height: 250px;"/><br>
+        <p style="color: gray;">Have questions? We've got the answers. <i>(If you're talking about OneCard, yes. If you're talking about DOS 4.1, no.)</i></p>
+      </div>
+    </div>
+    <div class="below-fold-content">
+      <center>
+        <h2>Need help?</h2>
+        <p>Take a look at the <a href="/topics">help topics</a>.</p>
+        <hr>
+        <h2>Can't find what you're looking for?</h2>
+        <p>You can always <a href="/contact">contact us</a>.</p>
+        <hr>
+        <h2>Found a problem?</h2>
+        <p>You can <a href="https://github.com/one-card/one-card.github.io/issues/new">create an issue</a> on GitHub.</p><br>
+      </center>
+    </div>
+    <div class="footer">
+      <center>
+        <p>
+          OneCard · Copyright &copy; the OneCard Team 2017<br><br>
+          <a href="https://one-card.github.io//help">Help Center</a> · <a href="https://github.com/one-card/one-card.github.io/issues/new">Report a Problem</a> · <a href="https://one-card.github.io//account">My Account</a> · <a href="https://one-card.github.io//notes">My Notes</a> · <a href="https://github.com/one-card">GitHub</a>
+        </p>
+      </center>
+    </div>
+  </body>
+</html>
