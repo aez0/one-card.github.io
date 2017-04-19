@@ -36,10 +36,24 @@ li {
 
 }
 
-li:before {
-	content: "☰";
+button {
+	font-size: 16px;
   cursor: pointer;
+  text-transform: uppercase;
+	padding: 10px 30px;
+	color: #0081D5;
+	border: 1px solid #0081D5;
+	border-radius: 5px;
+	margin: 5px;
+	background-color: white;
+  transition: 0.3s;
 }
+
+button:hover {
+  color: white;
+	background-color: #0081D5;
+}
+
 
 .navbar {
   padding: 10px 5%;
