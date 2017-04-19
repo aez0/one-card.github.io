@@ -104,9 +104,19 @@ textarea {
 .close {
 	padding: 2.5px;
 	color: black;
+	width: 20px;
+    float: right !important;
+    text-align: center;
+    position: relative;
+    left: 290px;
+    top: -25px;
 }
 
 .close:hover {
 	background-color: red;
 	color: white;
+}
+
+li span {
+	width: 20px;
 }
